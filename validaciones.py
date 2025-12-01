@@ -111,7 +111,7 @@ def cargar_datos(lista_estudiantes, lista_legajos, lista_genero, lista_notas, li
     print("Carga finalizada correctamente.\n")
 
 
-
+"---"
 
 
 
