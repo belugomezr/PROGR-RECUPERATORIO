@@ -87,7 +87,7 @@ def mostrar_datos_hardcodeados(lista_estudiantes, lista_genero, lista_legajos, l
         print("\n")  
         print("-" * 30)
 
-def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any)-> list: #le paso por parametros la cantidad de filas y columnas
+def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any)-> list: 
     """
     La funcion crea e inicializa una matriz con un valor determinado
 
@@ -102,9 +102,9 @@ def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:
     """
     
     matriz = [] #inicializo la matriz en 0
-    for indice in range(cantidad_filas): #recorre cada fila de la matriz 
-        fila = [valor_inicial] * cantidad_columnas #multiplico el valor inicial por la cantidad de columnas 
-        matriz += [fila] # Agrego la fila cargada a la matriz 
+    for indice in range(cantidad_filas): 
+        fila = [valor_inicial] * cantidad_columnas 
+        matriz += [fila] 
         
     return matriz
 
@@ -120,15 +120,15 @@ def cargar_notas_en_matriz(matriz:list)->list: #le paso por parametro la matriz
 
     """
     for indice in range (len(matriz)): #recorre las filas (0,1,2,etc)
-        for j in range(len(matriz[indice])): #recorre las columnas dentro de la fila indice
-            matriz[indice][j] = lista_notas [indice][j] #Asigna a cada celda de la matriz el valor correspondiente de lista_notas
+        for j in range(len(matriz[indice])): 
+            matriz[indice][j] = lista_notas [indice][j] 
     return matriz
 
 def mostrar_matriz(matriz:list): 
     for indice in range(len(matriz)):
         for j in range(len(matriz[indice])):
-                print(matriz[indice][j], end = " ") #evita el salto de linea, solo deja un espacio en cada elemento
-        print(" ") #una vez que recorre todo esto le da el ok para que haga el salto de linea
+                print(matriz[indice][j], end = " ") 
+        print(" ")
 
 def mostrar_un_estudiante(estudiantes:list, generos:list, legajos:list, indice:int, estados:list, notas:list):
     """
@@ -203,15 +203,14 @@ def calcular_promedios(matriz:list, estudiantes:list):
         list: Lista que contiene el promedio de cada estudiante.
     """
 
-    lista_notas = [] #crea una lista vacia para guardar los promedios 
-    for indice in range(len(matriz)): #recorre las filas de la matriz 
+    lista_notas = [] 
+    for indice in range(len(matriz)): 
         acumulador = 0
-        for j in range(len(matriz[indice])): # suma los valores de esa fila 
+        for j in range(len(matriz[indice])): 
             acumulador += matriz[indice][j]
         lista_promedio = acumulador / len(matriz[indice]) 
         lista_notas += [lista_promedio]
     
-        # imprimir cada promedio junto con el nombre
     for i in range(len(lista_notas)):
         print(lista_estudiantes[i], ":", lista_notas[i])
 
@@ -234,9 +233,9 @@ def mostrar_promedios_ordenados(estudiantes:list, generos:list, legajos:list, es
                         - "desc" para orden descendente (mayor a menor).    
       """
 
-    n = len(lista_notas) # cantidad de estudiantes
+    n = len(lista_notas) 
 
-    # Ordenamiento burbuja manteniendo la relación con los datos del estudiante
+
     for indice in range(n):
         for j in range(0, n - indice - 1):
             if (criterio == "asc" and lista_notas[j] > lista_notas[j + 1]) or (criterio == "desc" and lista_notas[j] < lista_notas[j + 1]):
